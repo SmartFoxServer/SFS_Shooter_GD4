@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://b86ug3srr1am5"]
+
+[ext_resource type="Script" path="res://scripts/GameListItem.cs" id="1_b41oe"]
+[ext_resource type="Texture2D" uid="uid://nix4mnow62nn" path="res://images/icons/play.png" id="2_cdydu"]
+[ext_resource type="Texture2D" uid="uid://b7tolhy1cjaw8" path="res://images/icons/playpressed.png" id="3_epd4s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btwex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scdi3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeahf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33h0n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhxo2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ix37w"]
+
+[node name="GameList" type="Control"]
+layout_mode = 3
+anchor_right = 0.456
+anchor_bottom = 0.128
+offset_right = -8.64001
+offset_bottom = -7.68001
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameListItem" type="Control" parent="." node_paths=PackedStringArray("playButton", "nameText", "detailsText")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 2.075
+anchor_bottom = 1.0
+offset_right = 6.10352e-05
+offset_bottom = -8.0
+script = ExtResource("1_b41oe")
+playButton = NodePath("PlayButton")
+nameText = NodePath("RoomName")
+detailsText = NodePath("UserSlots")
+
+[node name="RoomName" type="LineEdit" parent="GameListItem"]
+layout_mode = 2
+offset_right = 664.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_btwex")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_scdi3")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_qeahf")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+
+[node name="UserSlots" type="LineEdit" parent="GameListItem"]
+layout_mode = 2
+offset_top = 32.0
+offset_right = 664.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_33h0n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qhxo2")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_ix37w")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+
+[node name="PlayButton" type="TextureButton" parent="GameListItem"]
+layout_mode = 2
+offset_left = 528.0
+offset_top = 24.0
+offset_right = 624.0
+offset_bottom = 64.0
+texture_normal = ExtResource("2_cdydu")
+texture_pressed = ExtResource("3_epd4s")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GameListItem/PlayButton"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 19.0
+offset_right = 84.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PLAY"
+
+[node name="Line2D" type="Line2D" parent="GameListItem"]
+position = Vector2(0, 80)
+points = PackedVector2Array(-4, 0, 636, 0)
+width = 1.0
+default_color = Color(0, 0, 0, 1)

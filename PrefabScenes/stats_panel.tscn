@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmnvjixuo5qmh"]
+
+[ext_resource type="Script" path="res://scripts/stats_panel.cs" id="1_0n21f"]
+[ext_resource type="Texture2D" uid="uid://djsn52q7i4mxo" path="res://images/logo-sfs.png" id="2_s2m4w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8638b"]
+
+[node name="StatsPanel" type="Control" node_paths=PackedStringArray("fps", "mem", "dcs", "ping")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0n21f")
+fps = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/fps")
+mem = NodePath("MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/mem")
+dcs = NodePath("MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer/dcs")
+ping = NodePath("MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer/ping")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 3.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+material = SubResource("CanvasItemMaterial_8638b")
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(230, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("2_s2m4w")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "   Frames Per Second    : "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="fps" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "120"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "   Static Memory Used  : "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="mem" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Editor Only"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "   Draw Calls In Frame  : "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="dcs" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Editor Only"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "   Server Lag Ping Rate : "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="ping" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+text = "120"

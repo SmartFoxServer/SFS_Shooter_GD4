@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqahu14igv5pv"]
+
+[ext_resource type="Script" path="res://scripts/Characters/BulletTrail.cs" id="1_jabga"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_35yq1"]
+radius = 0.05
+
+[node name="BulletTrail" type="Node3D"]
+top_level = true
+script = ExtResource("1_jabga")
+TrailMeshPath = NodePath("Trail")
+
+[node name="Trail" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.588379, 0, 0, 0, -4.03366e-09, 0.64308, 0, -0.0922793, -2.81099e-08, 0, 3.8275e-08, -0.124371)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_35yq1")

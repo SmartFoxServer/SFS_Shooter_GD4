@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://2drkpr2aierk"]
+
+[ext_resource type="Texture2D" uid="uid://cotdk5ieuq1rl" path="res://Game/Textures/WoodPlanks3.png" id="1_qyg2h"]
+[ext_resource type="ArrayMesh" uid="uid://mgjqdnyut64e" path="res://Game/Environment/Models/Box.Box.mesh" id="2_apjry"]
+[ext_resource type="Texture2D" uid="uid://u4xc8wa0rqs1" path="res://Game/Textures/bulletBox.png" id="3_umnhx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1477a"]
+albedo_texture = ExtResource("1_qyg2h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdrf2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnfky"]
+
+[node name="AmmoBox" type="Node3D"]
+top_level = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Box_box" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_1477a")
+mesh = ExtResource("2_apjry")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jdrf2")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D/Box_box"]
+transform = Transform3D(-0.2, 3.01992e-08, 0, -3.01992e-08, -0.2, 0, 0, 0, 0.2, 0, 0.292626, 0.474287)
+texture = ExtResource("3_umnhx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
+shape = SubResource("BoxShape3D_dnfky")
