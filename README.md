@@ -1,3 +1,22 @@
+# SmartFoxServer Example Projects for Godot 4.x
+The series of **C# examples** built for the Godot 4 engine have been developed with **Godot Mono 4.0.3**, but although this example uses Godot Mono 4.2.1, the concepts and the code to interact with the SFS2X API are valid for any version of Godot 4.x (unless otherwise noted).
+
+Each of the tutorials in this series examine a single example, describing its objectives, **offering an insight into the SmartFoxServer features** it wants to highlight. This project includes all the assets required to compile and test the example (both client and — if existing — server side). If necessary, code excerpts are provided in the tutorial itself (see online documentation link below), in order to better explain the approach that was followed to implement a specific feature. At the bottom of the tutorial, additional resources are linked if available.
+
+The tutorials have an increasing complexity, from basic server connection to a complete game with authoritative server code.
+
+Specifically, the examples will showcase:
+
+* basic connection with optional protocol encryption
+* room management
+* buddy list management
+* game rooms and match-making
+* **authoritative server in a turn-based game**
+
+The Godot examples provided have been tested for exporting as native executables for Windows and macOS. At the time of writing this article (June 2023) Godot Mono does not yet support exporting for mobile platform or the browser.
+
+
+
 # SFS_Shooter_GD4
 The Shooter example shows how to develop a full multiplayer first/third person combat game with Godot 4.x and SmartFoxServer 2X. The game utilizes SmartFoxServer 2X's ability to mix TCP and UDP based messaging, and makes full use of SmartFoxServer's Lag Monitor.
 
