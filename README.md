@@ -69,7 +69,7 @@ Copy the Shooter/ folder from SFS2X-Shooter-Ext/deploy/ to your current SFS2X in
 The source code is provided under the SFS2X-Shooter-Ext/Java/src folder. You can create and setup a new project in your Java IDE of choice as described in the Writing the first Java Extension document of the Java Extensions Development section. Copy the content of the SFS2X-Shooter-Ext/Java/src folder to your Java project' source folder.
 
 ## Online Tutorial and Documentation
-The base code for this example is the same of the previous one, expanded to implement the new features.
+The base code for this example is similar to others in the series, but the Game code has been expanded to implement the new features.
 
 The LobbyManager and GameManager classes have been updated to add the logic related to the Game Room creation and join, and the logic to send invitations. However, this code requires the server extension to be installed on the server system.
 
@@ -77,7 +77,7 @@ To learn more about this template and how it is configured for establishing a co
 
 **SmartFoxServer Example Documentation**   
 
-http://docs2x.smartfoxserver.com/ExamplesGodot/tic-tac-toe
+http://docs2x.smartfoxserver.com/ExamplesGodot/shooter
 
 This online documentation includes:
 * Client and Server Code
