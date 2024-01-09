@@ -20,13 +20,13 @@ The Godot examples provided have been tested for exporting as native executables
 # SFS_Shooter_GD4
 The Shooter example shows how to develop a full multiplayer first/third person combat game with Godot 4.x and SmartFoxServer 2X. The game utilizes SmartFoxServer 2X's ability to mix TCP and UDP based messaging, and makes full use of SmartFoxServer's Lag Monitor.
 
-TCP is the most common protocol deployed on the Internet. Its dominance is explained by the fact that TCP performs error correction. When TCP is used, there is an assurance of delivery. This is accomplished through a number of characteristics including ordered data transfer, retransmission, flow control and congestion control. During the delivery process, packet data may collide and be lost, however TCP ensures that all packet data is received by re-sending requests until the complete package is successfully delivered.
-
-UDP is also commonly found on the Internet. However UDP is not used to deliver critical information, as it forgoes the data checking and flow control found in TCP. For this reason, UDP is significantly faster and more efficient, although, it cannot be relied on to reach its destination.
-
 <p align="center"> 
 <img width="720" alt="tictactoe" src="https://github.com/SmartFoxServer/SFS_Shooter_GD4/assets/30838007/68261408-f650-4d5b-9d7a-9cca1c83f3c1">
  </p>
+ 
+TCP is the most common protocol deployed on the Internet. Its dominance is explained by the fact that TCP performs error correction. When TCP is used, there is an assurance of delivery. This is accomplished through a number of characteristics including ordered data transfer, retransmission, flow control and congestion control. During the delivery process, packet data may collide and be lost, however TCP ensures that all packet data is received by re-sending requests until the complete package is successfully delivered.
+
+UDP is also commonly found on the Internet. However UDP is not used to deliver critical information, as it forgoes the data checking and flow control found in TCP. For this reason, UDP is significantly faster and more efficient, although, it cannot be relied on to reach its destination.
 
 In this example, all critical game information between the server and client are sent via TCP for reliable delivery. This could be shooting for example, or animation sync, damage messages, etc. On the other hand, sending updates to the players Transform, which is continuously sent by and to all clients, is executed using UDP.
 
