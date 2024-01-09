@@ -25,7 +25,7 @@ TCP is the most common protocol deployed on the Internet. Its dominance is expla
 UDP is also commonly found on the Internet. However UDP is not used to deliver critical information, as it forgoes the data checking and flow control found in TCP. For this reason, UDP is significantly faster and more efficient, although, it cannot be relied on to reach its destination.
 
 <p align="center"> 
-<img width="720" alt="tictactoe" src="https://github.com/SmartFoxServer/SFS_TicTacToe_GD4/assets/30838007/423390c0-3bfd-4d03-8aa8-72ebbe66ada6">
+<img width="720" alt="tictactoe" src="(https://github.com/SmartFoxServer/SFS_Shooter_GD4/assets/30838007/68261408-f650-4d5b-9d7a-9cca1c83f3c1)">
  </p>
 
 In this example, all critical game information between the server and client are sent via TCP for reliable delivery. This could be shooting for example, or animation sync, damage messages, etc. On the other hand, sending updates to the players Transform, which is continuously sent by and to all clients, is executed using UDP.
