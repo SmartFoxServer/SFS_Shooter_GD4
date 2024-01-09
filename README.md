@@ -5,13 +5,13 @@ Each of the tutorials in this series examine a single example, describing its ob
 
 The tutorials have an increasing complexity, from basic server connection to a complete game with authoritative server code.
 
-Specifically, the examples will showcase:
+Specifically, the examples in this series will showcase:
 
 * basic connection with optional protocol encryption
 * room management
 * buddy list management
 * game rooms and match-making
-* **authoritative server in a turn-based game**
+* authoritive server basics for player transforms
 
 The Godot examples provided have been tested for exporting as native executables for Windows and macOS. At the time of writing this article (June 2023) Godot Mono does not yet support exporting for mobile platform or the browser.
 
