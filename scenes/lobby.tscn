@@ -1,0 +1,504 @@
+[gd_scene load_steps=20 format=3 uid="uid://cg34gjy1bsig6"]
+
+[ext_resource type="Script" path="res://scripts/LobbyManager.cs" id="1_g821b"]
+[ext_resource type="Texture2D" uid="uid://cihiay168twy4" path="res://images/footer-bg.png" id="2_us3vg"]
+[ext_resource type="PackedScene" uid="uid://b86ug3srr1am5" path="res://PrefabScenes/gamelist.tscn" id="2_ylsae"]
+[ext_resource type="Texture2D" uid="uid://djsn52q7i4mxo" path="res://images/logo-sfs.png" id="3_uuu55"]
+[ext_resource type="Texture2D" uid="uid://bks18051f507l" path="res://images/buttonNormal.png" id="5_l3caa"]
+[ext_resource type="Texture2D" uid="uid://bt8tb3quwg80n" path="res://images/buttonPressed.png" id="6_njfrc"]
+[ext_resource type="FontFile" uid="uid://swky6glti8em" path="res://fonts/BebasNeue-Regular.ttf" id="7_ec57b"]
+[ext_resource type="Script" path="res://scripts/TextureButtonScript.cs" id="7_ffqmd"]
+[ext_resource type="FontFile" uid="uid://q4tvl3dc7vp" path="res://fonts/ARIAL.TTF" id="8_of3kf"]
+[ext_resource type="Texture2D" uid="uid://dorcvos038u3b" path="res://images/icons/user.png" id="10_npolx"]
+[ext_resource type="Texture2D" uid="uid://b6ding8s2lwrh" path="res://images/icons/userpressed.png" id="11_w10k6"]
+[ext_resource type="Texture2D" uid="uid://ci4aecbxkl25l" path="res://images/icons/dismiss.png" id="12_geeqi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ja1kl"]
+font = ExtResource("8_of3kf")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2chi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htwdb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbpex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7iln1"]
+line_spacing = 1.0
+font = ExtResource("7_ec57b")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ypquh"]
+font = ExtResource("8_of3kf")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qlrc"]
+content_margin_top = 10.0
+content_margin_bottom = 90.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Lobby" type="Control" node_paths=PackedStringArray("loginPanel", "loggedInAsLabel", "errorText", "userProfilePopup", "userProfileText", "warningPopup", "warningText", "scrollContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g821b")
+loginPanel = NodePath("BackGround/Login Panel")
+loggedInAsLabel = NodePath("BackGround/Footer/userLabel")
+errorText = NodePath("BackGround/Login Panel/Error Text")
+userProfilePopup = NodePath("User Profile Panel")
+userProfileText = NodePath("User Profile Panel/BackGround/userProfile")
+warningPopup = NodePath("Warning Panel")
+warningText = NodePath("Warning Panel/BackGround/warningText")
+scrollContainer = NodePath("BackGround/Login Panel/ScrollContainer")
+gameListScene = ExtResource("2_ylsae")
+
+[node name="BackGround" type="ColorRect" parent="."]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 0.603922, 0, 1)
+
+[node name="Footer" type="TextureRect" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_us3vg")
+expand_mode = 5
+
+[node name="SFSLogo" type="TextureRect" parent="BackGround/Footer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.739736
+anchor_top = 0.10874
+anchor_right = 0.988
+anchor_bottom = 0.822679
+offset_left = 0.739746
+offset_top = 12.6326
+offset_right = 0.983643
+offset_bottom = 12.6666
+texture = ExtResource("3_uuu55")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Logout  Button" type="TextureButton" parent="BackGround/Footer" node_paths=PackedStringArray("button", "scriptNode")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.312
+anchor_right = 0.194
+anchor_bottom = 0.844
+offset_left = -0.548002
+offset_top = -0.158001
+offset_right = -0.136017
+offset_bottom = -0.171005
+grow_vertical = 0
+texture_normal = ExtResource("5_l3caa")
+texture_pressed = ExtResource("6_njfrc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_ffqmd")
+button = NodePath(".")
+scriptNode = NodePath("../../..")
+callbackName = "OnLogoutButtonClick"
+
+[node name="Label" type="Label" parent="BackGround/Footer/Logout  Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.94
+anchor_bottom = 1.0
+offset_right = 16.0255
+offset_bottom = 2.133
+text = "LOGOUT"
+label_settings = SubResource("LabelSettings_ja1kl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userLabel" type="LineEdit" parent="BackGround/Footer"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211
+anchor_top = 0.401
+anchor_right = 0.5
+anchor_bottom = 0.756
+offset_left = -8.68402
+offset_top = -8.19025
+offset_right = 6.0
+offset_bottom = 7.771
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_uneditable_color = Color(0.8, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l2chi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_htwdb")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_pbpex")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+
+[node name="Login Panel" type="Control" parent="BackGround"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="BackGround/Login Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 40.0
+offset_right = 212.0
+offset_bottom = 163.0
+grow_horizontal = 2
+text = "Active Games"
+label_settings = SubResource("LabelSettings_7iln1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start Game  Button" type="TextureButton" parent="BackGround/Login Panel" node_paths=PackedStringArray("button", "scriptNode")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -199.0
+offset_right = 140.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_l3caa")
+texture_pressed = ExtResource("6_njfrc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_ffqmd")
+button = NodePath(".")
+scriptNode = NodePath("../../..")
+callbackName = "OnStartGameButtonClick"
+
+[node name="Label" type="Label" parent="BackGround/Login Panel/Start Game  Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.979
+anchor_bottom = 0.812
+offset_left = 10.0
+offset_top = 7.0
+offset_right = -0.119995
+offset_bottom = 0.0239983
+text = "Start Game"
+label_settings = SubResource("LabelSettings_ypquh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="User Profile  Button" type="TextureButton" parent="BackGround/Login Panel" node_paths=PackedStringArray("button", "scriptNode")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.936
+anchor_top = 0.032
+anchor_right = 0.981
+anchor_bottom = 0.097
+offset_left = 0.415894
+offset_top = 0.191999
+offset_right = -16.5641
+offset_bottom = -0.167999
+grow_horizontal = 0
+texture_normal = ExtResource("10_npolx")
+texture_pressed = ExtResource("11_w10k6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_ffqmd")
+button = NodePath(".")
+scriptNode = NodePath("../../..")
+callbackName = "OnUserIconClick"
+
+[node name="Error Text" type="LineEdit" parent="BackGround/Login Panel"]
+z_as_relative = false
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -674.0
+offset_top = -140.0
+offset_right = 686.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_uneditable_color = Color(0.8, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l2chi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_htwdb")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_pbpex")
+alignment = 1
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackGround/Login Panel"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271
+anchor_top = 0.204
+anchor_right = 0.737
+anchor_bottom = 0.71
+offset_left = 0.675964
+offset_top = 0.223999
+offset_right = -0.228027
+offset_bottom = -0.240051
+theme_override_styles/panel = SubResource("StyleBoxFlat_8qlrc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/Login Panel/ScrollContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+
+[node name="User Profile Panel" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -80.0
+offset_right = 300.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="User Profile Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -80.0
+offset_right = 302.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="BackGround" type="ColorRect" parent="User Profile Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.85098, 0.509804, 0, 1)
+
+[node name="popupTitle" type="Label" parent="User Profile Panel/BackGround"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 279.0
+offset_bottom = 93.0
+text = "User Profile"
+label_settings = SubResource("LabelSettings_7iln1")
+
+[node name="userProfile" type="LineEdit" parent="User Profile Panel/BackGround"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 40.0
+offset_right = 30.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l2chi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_htwdb")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_pbpex")
+placeholder_text = "Username...."
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+
+[node name="closePopupButton" type="TextureButton" parent="User Profile Panel/BackGround" node_paths=PackedStringArray("button", "scriptNode")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = ExtResource("12_geeqi")
+stretch_mode = 0
+script = ExtResource("7_ffqmd")
+button = NodePath(".")
+scriptNode = NodePath("../../..")
+callbackName = "OnUserIconCloseClick"
+
+[node name="Line2D" type="Line2D" parent="User Profile Panel/BackGround"]
+position = Vector2(32.2368, 86)
+scale = Vector2(0.848, 2)
+points = PackedVector2Array(-4, 0, 636, 0)
+width = 1.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Warning Panel" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -130.0
+offset_right = 300.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Warning Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -130.0
+offset_right = 301.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="BackGround" type="ColorRect" parent="Warning Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -130.0
+offset_right = 300.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.85098, 0.509804, 0, 1)
+
+[node name="popupTitle" type="Label" parent="Warning Panel/BackGround"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 279.0
+offset_bottom = 93.0
+text = "Warning"
+label_settings = SubResource("LabelSettings_7iln1")
+
+[node name="closePopupButton" type="TextureButton" parent="Warning Panel/BackGround" node_paths=PackedStringArray("button", "scriptNode")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = ExtResource("12_geeqi")
+stretch_mode = 0
+script = ExtResource("7_ffqmd")
+button = NodePath(".")
+scriptNode = NodePath("../../..")
+callbackName = "OnWarningPanelHide"
+
+[node name="warningText" type="TextEdit" parent="Warning Panel/BackGround"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.0
+offset_top = -140.0
+offset_right = 264.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/background_color = Color(0.85098, 0.509804, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+
+[node name="Line2D" type="Line2D" parent="Warning Panel/BackGround"]
+position = Vector2(40.1745, 88.5)
+scale = Vector2(0.834891, -0.5)
+points = PackedVector2Array(-4, 0, 636, 0)
+width = 1.0
+default_color = Color(0, 0, 0, 1)
