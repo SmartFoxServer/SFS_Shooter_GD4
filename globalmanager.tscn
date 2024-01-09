@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmt0tkdjy4omw"]
+
+[ext_resource type="Script" path="res://scripts/GlobalManager.cs" id="1_fdjum"]
+
+[node name="golbalmanager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fdjum")

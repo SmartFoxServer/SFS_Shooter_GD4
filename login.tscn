@@ -1,0 +1,225 @@
+[gd_scene load_steps=17 format=3 uid="uid://bp3fhg0jeogbe"]
+
+[ext_resource type="Script" path="res://scripts/Connector.cs" id="1_da1kt"]
+[ext_resource type="Texture2D" uid="uid://cihiay168twy4" path="res://images/footer-bg.png" id="2_s51sf"]
+[ext_resource type="Texture2D" uid="uid://djsn52q7i4mxo" path="res://images/logo-sfs.png" id="3_4iqtv"]
+[ext_resource type="FontFile" uid="uid://swky6glti8em" path="res://fonts/BebasNeue-Regular.ttf" id="4_yuk5d"]
+[ext_resource type="Texture2D" uid="uid://bks18051f507l" path="res://images/buttonNormal.png" id="5_c33mm"]
+[ext_resource type="Texture2D" uid="uid://bt8tb3quwg80n" path="res://images/buttonPressed.png" id="6_jhydf"]
+[ext_resource type="Script" path="res://scripts/TextureButtonScript.cs" id="7_v53py"]
+[ext_resource type="FontFile" uid="uid://q4tvl3dc7vp" path="res://fonts/ARIAL.TTF" id="8_d625f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm08h"]
+font = ExtResource("4_yuk5d")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hb14y"]
+font = ExtResource("4_yuk5d")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_flk2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osrhs"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_d6lgr"]
+font = ExtResource("8_d625f")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6uim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbaki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2a6g5"]
+
+[node name="Connector" type="Control" node_paths=PackedStringArray("loginPanel", "errorText", "nameInput")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -3.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_da1kt")
+debug = true
+logLevel = 400
+loginPanel = NodePath("BackGround/Login Panel")
+errorText = NodePath("BackGround/Login Panel/Error Text")
+nameInput = NodePath("BackGround/Login Panel/Name Input")
+SceneName = "lobby"
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.603922, 0, 1)
+
+[node name="Footer" type="TextureRect" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_s51sf")
+expand_mode = 5
+
+[node name="SFSLogo" type="TextureRect" parent="BackGround/Footer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.739736
+anchor_top = 0.108647
+anchor_right = 0.988
+anchor_bottom = 0.822586
+offset_left = 0.739746
+offset_top = 12.6326
+offset_right = 0.983643
+offset_bottom = 12.6666
+texture = ExtResource("3_4iqtv")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Login Panel" type="Control" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="BackGround/Login Panel"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.0
+offset_top = 210.0
+offset_right = 178.0
+offset_bottom = 333.0
+grow_horizontal = 2
+text = "SHooter"
+label_settings = SubResource("LabelSettings_jm08h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitle" type="Label" parent="BackGround/Login Panel"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.5
+offset_top = -76.0
+offset_right = 285.5
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A MULTIPLAYER GAME TEMPLATE FOR SMARTFOXSERVER"
+label_settings = SubResource("LabelSettings_hb14y")
+
+[node name="Name Input" type="LineEdit" parent="BackGround/Login Panel"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_flk2i")
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = 0.5
+offset_right = 135.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.270588)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_osrhs")
+placeholder_text = "Your Name"
+alignment = 1
+caret_blink = true
+
+[node name="Login  Button" type="TextureButton" parent="BackGround/Login Panel" node_paths=PackedStringArray("button", "scriptNode")]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = 56.5
+offset_right = 135.5
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_c33mm")
+texture_pressed = ExtResource("6_jhydf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_v53py")
+button = NodePath(".")
+scriptNode = NodePath("../../..")
+callbackName = "OnLoginButtonClick"
+
+[node name="Label" type="Label" parent="BackGround/Login Panel/Login  Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.945
+anchor_bottom = 0.719
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 9.39999
+offset_bottom = 9.488
+text = "LOGIN"
+label_settings = SubResource("LabelSettings_d6lgr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Error Text" type="LineEdit" parent="BackGround/Login Panel"]
+z_as_relative = false
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -680.5
+offset_top = -280.0
+offset_right = 679.5
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_uneditable_color = Color(0.8, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f6uim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wbaki")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_2a6g5")
+alignment = 1
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
